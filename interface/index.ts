@@ -5,3 +5,15 @@ export interface FilterProps {
   checkOut: string
   guest: number
 }
+
+export interface FilterComponentProps {
+  filterValue: FilterProps
+  setFilterValue: React.Dispatch<React.SetStateAction<FilterProps>>
+  setDetailFilter: React.Dispatch<React.SetStateAction<DetailFilterType | null>>
+}
+
+export interface FilterLayoutProps {
+  title: string
+  children: React.ReactNode
+  isShow: boolean
+}
