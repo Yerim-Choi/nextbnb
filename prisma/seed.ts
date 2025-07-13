@@ -123,9 +123,39 @@ function getRandomLongitude() {
     .toString()
 }
 
+// async function seedFaq() {
+//   Array.from({ length: 10 }, (v, i) => i).forEach(async () => {
+//     const faqData = {
+//       title: faker.lorem.words(),
+//       desc: faker.lorem.paragraph(),
+//     }
+
+//     const res = await prisma.faq.create({
+//       data: faqData,
+//     })
+//     console.log(res)
+//   })
+// }
+
+async function seedFaq() {
+  for (let i = 0; i < 10; i++) {
+    const faqData = {
+      title: faker.lorem.words(),
+      desc: faker.lorem.paragraph(),
+    }
+
+    const res = await prisma.faq.create({
+      data: faqData,
+    })
+
+    console.log(res)
+  }
+}
+
 async function main() {
   //   await seedUsers()
-  await seedRooms()
+  // await seedRooms()
+  await seedFaq()
 }
 
 // main()
