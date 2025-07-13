@@ -1,6 +1,30 @@
 import { PrismaClient } from '@prisma/client'
 import { fakerKO as faker } from '@faker-js/faker'
-import { CATEGORY } from '@/constants'
+
+const CATEGORY = [
+  '전망좋은',
+  '자연',
+  '동굴',
+  '캠핑장',
+  '방',
+  '한옥',
+  '해변',
+  '국립공원',
+  '인기',
+  '수영장',
+  '농장',
+  '통나무집',
+  '디자인',
+  '스키',
+  '호수',
+  '키즈',
+  '저택',
+  '신규',
+  '섬',
+  '주택',
+  '서핑',
+  '골프장',
+]
 
 const prisma = new PrismaClient()
 
@@ -27,7 +51,7 @@ async function seedRooms() {
   const totalUsers = await prisma.user.findMany()
 
   if (totalUsers?.length > 1) {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 100; i++) {
       const randomUserIndex = Math.floor(Math.random() * totalUsers.length)
       const randomUser = totalUsers[randomUserIndex]
 
@@ -154,8 +178,8 @@ async function seedFaq() {
 
 async function main() {
   //   await seedUsers()
-  // await seedRooms()
-  await seedFaq()
+  await seedRooms()
+  // await seedFaq()
 }
 
 // main()
