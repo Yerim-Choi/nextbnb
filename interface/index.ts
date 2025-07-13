@@ -4,6 +4,7 @@ export interface FilterProps {
   checkIn: string
   checkOut: string
   guest: number
+  category: string
 }
 
 export interface FilterComponentProps {
@@ -16,4 +17,13 @@ export interface FilterLayoutProps {
   title: string
   children: React.ReactNode
   isShow: boolean
+}
+
+export interface RoomType {
+  id: number
+  images: string[]
+  title: string
+  address: string
+  price: number
+  category: string
 }
