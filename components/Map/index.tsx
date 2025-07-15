@@ -17,7 +17,11 @@ const DEFAULT_LAT = 37.565337
 const DEFAULT_LNG = 126.9772095
 const ZOOM_LEVEL = 7
 
-export default function Map() {
+export default function Map({
+  setSelectedRoom,
+}: {
+  setSelectedRoom: React.Dispatch<React.SetStateAction<RoomType | null>>
+}) {
   const fetchRooms = async () => {
     const { data } = await axios('/api/rooms')
     return data as RoomType[]
@@ -41,6 +45,29 @@ export default function Map() {
         // 마커가 표시될 위치입니다
         const markerPosition = new window.kakao.maps.LatLng(room.lat, room.lng)
 
+        // 마커 이미지 설정
+        const imageSrc = '/images/marker-icon.png'
+        const imageSize = new window.kakao.maps.Size(30, 30)
+        const imageOption = {
+          offset: new window.kakao.maps.Point(16, 46),
+        }
+
+        // 마커 이미지를 생성합니다.
+        const markerImage = new window.kakao.maps.MarkerImage(
+          imageSrc,
+          imageSize,
+          imageOption,
+        )
+
+        // 마커를 생성합니다.
+        const marker = new window.kakao.maps.Marker({
+          position: markerPosition,
+          image: markerImage,
+        })
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map)
+
         // custom overlay를 설정합니다.
         const content = `<div class="custom_overlay">${room.price?.toLocaleString()}원</div>`
 
@@ -52,6 +79,15 @@ export default function Map() {
 
         // custom overlay가 지도 위에 표시되도록 설정합니다
         customOverlay.setMap(map)
+
+        // 마커에 클릭 이벤트를 등록합니다.
+        window.kakao.maps.event.addListener(marker, 'click', function () {
+          setSelectedRoom(room)
+        })
+
+        window.kakao.maps.event.addListener(map, 'click', function () {
+          setSelectedRoom(null)
+        })
       })
     })
   }
