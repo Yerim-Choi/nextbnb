@@ -70,6 +70,8 @@ const CheckInFilter = () => {
       isShow={detailFilter === 'checkIn'}
     >
       <Calendar
+        next2Label={null}
+        prev2Label={null}
         className={'mt-8 mx-auto'}
         onChange={onChange}
         minDate={new Date()}
@@ -94,6 +96,8 @@ const CheckOutFilter = () => {
       isShow={detailFilter === 'checkOut'}
     >
       <Calendar
+        next2Label={null}
+        prev2Label={null}
         className={'mt-8 mx-auto'}
         onChange={onChange}
         minDate={
