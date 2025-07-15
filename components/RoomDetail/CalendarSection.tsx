@@ -40,7 +40,9 @@ export default function CalendarSection({ data }: { data: RoomType }) {
             className={'mt-4 mx-auto'}
             onChange={onChangeCheckIn}
             minDate={new Date()}
-            defaultValue={filterValue.checkIn ? new Date() : null}
+            defaultValue={
+              filterValue.checkIn ? new Date(filterValue.checkIn) : null
+            }
             formatDay={(locale, date) => dayjs(date).format('DD')}
           />
           <Calendar
@@ -51,7 +53,9 @@ export default function CalendarSection({ data }: { data: RoomType }) {
             minDate={
               filterValue.checkIn ? new Date(filterValue.checkIn) : new Date()
             }
-            defaultValue={filterValue.checkOut ? new Date() : null}
+            defaultValue={
+              filterValue.checkOut ? new Date(filterValue.checkOut) : null
+            }
             formatDay={(locale, date) => dayjs(date).format('DD')}
           />
         </div>

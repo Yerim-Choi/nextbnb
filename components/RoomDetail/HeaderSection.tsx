@@ -7,6 +7,7 @@ import { BLUR_DATA_URL } from '@/constants'
 import Image from 'next/image'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import ImageListModal from './ImageModal'
+import ShareButton from './ShareButton'
 
 export default function HeaderSection({ data }: { data: RoomType }) {
   const [showImageModal, setShowImageModal] = useState<boolean>(false)
@@ -17,13 +18,7 @@ export default function HeaderSection({ data }: { data: RoomType }) {
       <div className="flex w-full justify-between items-center px-4">
         <div className="underline text-xs md:text-sm mt-2">{data.address}</div>
         <div className="flex gap-2 text-xs md:text-sm mt-2">
-          <button
-            type="button"
-            className="flex gap-2 items-center px-2 py-1.5 rounded-lg hover:bg-black/10"
-          >
-            <CiShare1 />
-            <span>공유하기</span>
-          </button>
+          <ShareButton data={data} />
           <button
             type="button"
             className="flex gap-2 items-center px-2 py-1.5 rounded-lg hover:bg-black/10"

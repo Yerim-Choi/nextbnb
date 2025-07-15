@@ -1,8 +1,8 @@
-import { BLUR_DATA_URL } from '@/constants'
 import { RoomType } from '@/interface'
-import { Dialog, DialogPanel, DialogTitle, Transition } from '@headlessui/react'
-import Image from 'next/image'
+import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import Image from 'next/image'
+import { BLUR_DATA_URL } from '@/constants'
 
 export default function ImageListModal({
   isOpen,
@@ -40,19 +40,19 @@ export default function ImageListModal({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <DialogPanel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <DialogTitle
+                <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
                     as="h3"
-                    className="text-lg md:text-2xl font-medium leading-6 text-gray-900"
+                    className="text-xl md:text-2xl font-medium leading-6 text-gray-900"
                   >
                     이미지 전체 보기
-                  </DialogTitle>
-                  <div className="mt-10 mb-20 max-x-xl mx-auto flex flex-col gap-4">
+                  </Dialog.Title>
+                  <div className="mt-10 mb-20 max-w-xl mx-auto flex flex-col gap-4">
                     {data?.images?.map((img) => (
                       <Image
                         key={img}
-                        src={img}
                         alt="room img"
+                        src={img}
                         width={1000}
                         height={1000}
                         className="mx-auto"
@@ -61,7 +61,6 @@ export default function ImageListModal({
                       />
                     ))}
                   </div>
-
                   <div className="mt-4">
                     <button
                       type="button"
@@ -71,7 +70,7 @@ export default function ImageListModal({
                       닫기
                     </button>
                   </div>
-                </DialogPanel>
+                </Dialog.Panel>
               </Transition.Child>
             </div>
           </div>
