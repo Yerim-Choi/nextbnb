@@ -28,7 +28,7 @@ export default function Map() {
   const { data: rooms, isSuccess } = useQuery('map-rooms', fetchRooms)
 
   // @see - https://apis.map.kakao.com/web/documentation/#load
-  const loadKakoMap = () => {
+  const loadKakaoMap = () => {
     window.kakao.maps.load(() => {
       const mapContainer = document.getElementById('map')
       const mapOption = {
@@ -96,7 +96,7 @@ export default function Map() {
           strategy="afterInteractive"
           type="text/javascript"
           src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_CLIENT}&autoload=false`}
-          onReady={loadKakoMap}
+          onReady={loadKakaoMap}
         />
       ) : (
         <FullPageLoad />
