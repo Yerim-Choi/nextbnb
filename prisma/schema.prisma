@@ -59,8 +59,9 @@ model User {
   id    String  @id @default(uuid())
   email String  @unique
   name  String?
-  image String
-  desc  String
+  image String?
+  desc  String?
+  emailVerified Boolean?
   rooms Room[]
   account Account[]
   session Session[]
