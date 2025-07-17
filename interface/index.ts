@@ -44,6 +44,11 @@ export interface RoomType {
   hasFreeParking: boolean
 }
 
+interface Account {
+  id: string
+  provider: string
+}
+
 export interface UserType {
   id: number
   email: string
@@ -51,6 +56,9 @@ export interface UserType {
   image?: string
   desc?: string
   rooms: RoomType[]
+  accounts: Account[]
+  address?: string
+  phone?: string
 }
 
 export interface FaqType {
