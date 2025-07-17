@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
@@ -11,13 +12,12 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { AiOutlineUser } from 'react-icons/ai'
 
 import cn from 'classnames'
-import 'dayjs/locale/ko'
 
 import Link from 'next/link'
 import { SearchFilter } from './Filter'
-import { detailFilterState, filterState } from '@/atom'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { useSession, signOut } from 'next-auth/react'
+import { detailFilterState, filterState } from '@/atom'
+import { signOut, useSession } from 'next-auth/react'
 
 const LOGOUT_USER_MENU = [
   { id: 1, title: '로그인', url: '/users/signin' },
@@ -32,13 +32,13 @@ const LOGIN_USER_MENU = [
 ]
 
 export default function Navbar() {
-  const router = useRouter()
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const [showFilter, setShowFilter] = useState<boolean>(false)
   const { status, data: session } = useSession()
-
   const [detailFilter, setDetailFilter] = useRecoilState(detailFilterState)
   const filterValue = useRecoilValue(filterState)
+
+  const router = useRouter()
 
   return (
     <nav
@@ -174,7 +174,7 @@ export default function Navbar() {
             </div>
             <button
               type="button"
-              className="bg-rose-600 text-white rounded-full h-10 mx-4 sm:w-24 mt-4 sm:mt-2  my-auto flex justify-center gap-1 px-3 py-2 hover:shadow hover:bg-rose-500"
+              className="bg-rose-600 text-white rounded-full h-10 mx-4 sm:w-24 mt-4 sm:mt-2 my-auto flex justify-center gap-1 px-3 py-2 hover:shadow hover:bg-rose-500"
               onClick={() => {
                 setShowFilter(false)
                 setDetailFilter(null)
@@ -203,7 +203,7 @@ export default function Navbar() {
           {status === 'authenticated' && session?.user?.image ? (
             <img
               src={session?.user?.image}
-              alt="user"
+              alt="profile img"
               className="rounded-full w-4 h-4 my-auto"
             />
           ) : (

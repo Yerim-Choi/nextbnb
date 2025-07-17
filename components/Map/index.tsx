@@ -9,7 +9,7 @@ import { BsMap } from 'react-icons/bs'
 import { DEFAULT_LAT, DEFAULT_LNG, ZOOM_LEVEL } from '@/constants'
 import { useSetRecoilState } from 'recoil'
 import { selectedRoomState } from '@/atom'
-import { FullPageLoad } from '../Loader'
+import { FullPageLoader } from '../Loader'
 
 declare global {
   interface Window {
@@ -99,7 +99,7 @@ export default function Map() {
           onReady={loadKakaoMap}
         />
       ) : (
-        <FullPageLoad />
+        <FullPageLoader />
       )}
       <div id="map" className="w-full h-screen" />
     </>

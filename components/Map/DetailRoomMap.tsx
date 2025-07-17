@@ -7,7 +7,7 @@ import axios from 'axios'
 import { RoomType } from '@/interface'
 import { BsMap } from 'react-icons/bs'
 import { DEFAULT_LAT, DEFAULT_LNG, ZOOM_LEVEL } from '@/constants'
-import { FullPageLoad } from '../Loader'
+import { FullPageLoader } from '../Loader'
 
 declare global {
   interface Window {
@@ -90,7 +90,7 @@ export default function DetailRoomMap({ data }: { data: RoomType }) {
           onReady={loadKakaoMap}
         />
       ) : (
-        <FullPageLoad />
+        <FullPageLoader />
       )}
       <div id="map" className="w-full h-[500px] border border-gray-300" />
     </>
