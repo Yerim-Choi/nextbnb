@@ -19,7 +19,7 @@ export default function HeaderSection({ data }: { data: RoomType }) {
         <div className="underline text-xs md:text-sm mt-2">{data.address}</div>
         <div className="flex gap-2 text-xs md:text-sm mt-2">
           <ShareButton data={data} />
-          <LikeButton />
+          <LikeButton room={data} />
         </div>
       </div>
 
