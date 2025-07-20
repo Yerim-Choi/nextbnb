@@ -5,7 +5,7 @@ import { RoomType } from '@/interface'
 import { BLUR_DATA_URL } from '@/constants'
 import Image from 'next/image'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
-import ImageListModal from './ImageModal'
+import ImageListModal from './ImageListModal'
 import ShareButton from './ShareButton'
 import LikeButton from './LikeButton'
 

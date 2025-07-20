@@ -2,6 +2,7 @@ import { ParamsProps, RoomType } from '@/interface'
 import HeaderSection from '@/components/RoomDetail/HeaderSection'
 import FeatureSection from '@/components/RoomDetail/FeatureSection'
 import MapSection from '@/components/RoomDetail/MapSection'
+import Comment from '@/components/Comment'
 
 export default async function RoomDetailPage({ params }: ParamsProps) {
   const { id } = params
@@ -11,6 +12,7 @@ export default async function RoomDetailPage({ params }: ParamsProps) {
     <div className="mt-8 mb-20 max-w-6xl mx-auto">
       <HeaderSection data={data} />
       <FeatureSection data={data} />
+      <Comment data={data} />
       <MapSection data={data} />
     </div>
   )
