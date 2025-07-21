@@ -12,7 +12,7 @@ export default async function RoomDetailPage({ params }: ParamsProps) {
     <div className="mt-8 mb-20 max-w-6xl mx-auto">
       <HeaderSection data={data} />
       <FeatureSection data={data} />
-      <Comment data={data} />
+      <Comment room={data} />
       <MapSection data={data} />
     </div>
   )
