@@ -9,6 +9,8 @@ import { useInfiniteQuery } from 'react-query'
 import { CommentApiType, CommentType } from '@/interface'
 import { Loader } from '../Loader'
 import useIntersectionObserver from '@/hook/useIntersectionObserver'
+import dayjs from 'dayjs'
+import 'dayjs/locale/ko'
 
 export default function CommentListModal({
   isOpen,
@@ -121,7 +123,9 @@ export default function CommentListModal({
                                   {comment?.user?.name || '-'}
                                 </h1>
                                 <div className="text-gray-500 text-xs">
-                                  {comment?.createdAt}
+                                  {dayjs(comment?.createdAt).format(
+                                    'YYYY-MM-DD HH:mm:ss',
+                                  )}
                                 </div>
                               </div>
                             </div>

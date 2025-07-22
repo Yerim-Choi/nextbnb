@@ -54,7 +54,7 @@ export default function MyPage() {
         </Link>
 
         <Link
-          href="/users/info"
+          href="/users/likes"
           className="shadow-lg rounded-lg flex flex-col justify-between p-4 gap-12 hover:shadow-xl"
         >
           <AiOutlineHeart className="text-xl md:text-3xl" />
@@ -65,7 +65,7 @@ export default function MyPage() {
         </Link>
 
         <Link
-          href="/users/info"
+          href="/users/comments"
           className="shadow-lg rounded-lg flex flex-col justify-between p-4 gap-12 hover:shadow-xl"
         >
           <AiOutlineComment className="text-xl md:text-3xl" />

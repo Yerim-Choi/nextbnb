@@ -5,6 +5,8 @@ import { BiChevronRight } from 'react-icons/bi'
 import CommentListModal from './CommentListModal'
 import { CommentApiType } from '@/interface'
 import { Loader } from '../Loader'
+import dayjs from 'dayjs'
+import 'dayjs/locale/ko'
 
 export default function CommentList({
   comments,
@@ -51,7 +53,7 @@ export default function CommentList({
                       {comment?.user?.name || '-'}
                     </h1>
                     <span className="text-gray-500 text-xs">
-                      {comment.createdAt}
+                      {dayjs(comment.createdAt).format('YYYY-MM-DD HH:mm:ss')}
                     </span>
                   </div>
                 </div>
