@@ -9,7 +9,7 @@ import axios from 'axios'
 
 import { LikeType, RoomType } from '@/interface'
 import { Loader, LoaderGrid } from '@/components/Loader'
-import useIntersectionObserver from '@/hook/useIntersectionObserver'
+import useIntersectionObserver from '@/hooks/useIntersectionObserver'
 import { useSession } from 'next-auth/react'
 
 export default function LikesPage() {

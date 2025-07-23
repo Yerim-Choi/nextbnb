@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import { useInfiniteQuery } from 'react-query'
 
 import { useSession } from 'next-auth/react'
-import useIntersectionObserver from '@/hook/useIntersectionObserver'
+import useIntersectionObserver from '@/hooks/useIntersectionObserver'
 import axios from 'axios'
 import React from 'react'
 import { CommentType } from '@/interface'

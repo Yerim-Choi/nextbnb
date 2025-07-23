@@ -8,7 +8,7 @@ import axios from 'axios'
 import { useInfiniteQuery } from 'react-query'
 import { CommentApiType, CommentType } from '@/interface'
 import { Loader } from '../Loader'
-import useIntersectionObserver from '@/hook/useIntersectionObserver'
+import useIntersectionObserver from '@/hooks/useIntersectionObserver'
 import dayjs from 'dayjs'
 import 'dayjs/locale/ko'
 

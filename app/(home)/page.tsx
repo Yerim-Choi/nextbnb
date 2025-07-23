@@ -9,7 +9,7 @@ import axios from 'axios'
 
 import { RoomType } from '@/interface'
 import { Loader, LoaderGrid } from '@/components/Loader'
-import useIntersectionObserver from '@/hook/useIntersectionObserver'
+import useIntersectionObserver from '@/hooks/useIntersectionObserver'
 import { useRouter } from 'next/navigation'
 import { MapButton } from '@/components/Map'
 
