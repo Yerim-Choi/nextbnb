@@ -41,15 +41,17 @@ export default async function BookingPage({
             <h2 className="text-lg md:text-2xl font-semibold">숙소 정보</h2>
 
             <div className="flex border-b gap-4 pb-6">
-              <Image
-                src={data?.images?.[0]}
-                width={100}
-                height={100}
-                alt="숙소 이미지"
-                className="rounded-md"
-                placeholder="blur"
-                blurDataURL={BLUR_DATA_URL}
-              />
+              <div className="w-[100px] h-[100px] relative">
+                <Image
+                  src={data?.images?.[0]}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  alt="숙소 이미지"
+                  className="rounded-md"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                />
+              </div>
               <div className="flex flex-col justify-between">
                 <Link href={`/rooms/${data.id}`}>
                   <h1 className="text-sm">{data?.title}</h1>
