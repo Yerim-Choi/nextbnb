@@ -106,3 +106,18 @@ export interface ParamsProps {
     id: string
   }
 }
+
+export interface ParamsProps {
+  params: { id: string }
+}
+
+export interface BookingParamsProps {
+  params: { id: string }
+  searchParams: {
+    checkIn: string
+    checkOut: string
+    guestCount: string
+    totalAmount: string
+    totalDays: string
+  }
+}
