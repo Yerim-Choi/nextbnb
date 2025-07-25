@@ -69,6 +69,7 @@ export interface RoomType {
   hasFreeParking: boolean
   likes?: LikeType[]
   comments?: CommentType[]
+  bookings?: BookingType[]
 }
 
 interface Account {
@@ -87,6 +88,7 @@ export interface UserType {
   address?: string
   phone?: string
   comments?: CommentType[]
+  bookings?: BookingType[]
 }
 
 export interface FaqType {
@@ -120,4 +122,19 @@ export interface BookingParamsProps {
     totalAmount: string
     totalDays: string
   }
+}
+
+export interface BookingType {
+  roomId: number
+  userId: string
+  checkIn: string
+  checkOut: string
+  guestCount: string
+  totalAmount: string
+  totalDays: string
+  status: 'SUCCESS' | 'CANCEL'
+  room: RoomType
+  user: UserType
+  createAt: string
+  updatedAt: string
 }

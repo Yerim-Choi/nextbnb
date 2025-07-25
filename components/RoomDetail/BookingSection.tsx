@@ -122,7 +122,7 @@ export default function BookingSection({ data }: { data: RoomType }) {
           </div>
           <div className="flex justify-between mt-6">
             <div>총 합계</div>
-            <div>₩{totalAmount?.toLocaleString()}</div>
+            <div>{totalAmount?.toLocaleString()}</div>
           </div>
         </div>
       </div>

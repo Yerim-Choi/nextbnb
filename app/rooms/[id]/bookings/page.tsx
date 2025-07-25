@@ -1,3 +1,4 @@
+import SubmitButton from '@/components/Booking/SubmitButton'
 import { BLUR_DATA_URL } from '@/constants'
 import { BookingParamsProps, RoomType } from '@/interface'
 import Image from 'next/image'
@@ -14,8 +15,6 @@ export default async function BookingPage({
   const totalAmount = searchParams.totalAmount
   const totalDays = searchParams.totalDays
   const data: RoomType = await getData(id)
-
-  console.log(data?.images?.[0])
 
   return (
     <div className="my-28 max-w-6xl mx-auto px-4">
@@ -71,17 +70,10 @@ export default async function BookingPage({
             <div>
               <h3>총 합계</h3>
               <div className="text-sm mt-1 text-gray-800">
-                {totalAmount?.toLocaleString()}원
+                {parseInt(totalAmount)?.toLocaleString()}원
               </div>
             </div>
-            <div>
-              <button
-                type="button"
-                className="bg-rose-600 hover:bg-rose-500 px-6 py-3 text-white rounded-md w-full"
-              >
-                확인 및 결제
-              </button>
-            </div>
+            <SubmitButton />
           </div>
         </div>
       </div>
