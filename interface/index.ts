@@ -125,6 +125,7 @@ export interface BookingParamsProps {
 }
 
 export interface BookingType {
+  id: number
   roomId: number
   userId: string
   checkIn: string
