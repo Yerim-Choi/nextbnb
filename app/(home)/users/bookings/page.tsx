@@ -51,7 +51,10 @@ export default function BookingsPage() {
           {bookings?.pages?.map((page, index) => (
             <React.Fragment key={index}>
               {page.data.map((booking: BookingType) => (
-                <div className="flex flex-col gap-6 border-b pb-8 hover:bg-black/5 cursor-pointer p-6">
+                <div
+                  key={booking.id}
+                  className="flex flex-col gap-6 border-b pb-8 hover:bg-black/5 cursor-pointer p-6"
+                >
                   <h1 className="font-semibold text-lg md:text-xl">
                     {booking?.status === 'SUCCESS'
                       ? '예약된 여행'
@@ -63,6 +66,7 @@ export default function BookingsPage() {
                         <Image
                           src={booking?.room?.images?.[0] || '/images/logo.png'}
                           fill
+                          sizes="80px"
                           style={{ objectFit: 'cover' }}
                           alt="숙소 이미지"
                           className="rounded-md"
