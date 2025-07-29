@@ -121,7 +121,7 @@ model Faq {
 }
 
 model Booking {
-  id                Int         @id @default(autoincrement())
+  id                String         @id @default(uuid())
   checkIn           DateTime
   checkOut          DateTime
   guestCount        Int
@@ -140,11 +140,13 @@ model Booking {
 enum BookingStatus {
   SUCCESS
   CANCEL
+  PENDING
+  FAILED
 }
 
 model Payment {
   id             String       @id @default(uuid())
-  bookingId      Int           
+  bookingId      String           
   booking        Booking      @relation(fields: [bookingId], references: [id])
   paymentKey     String?      // 결제의 키 값
   amount         Int
