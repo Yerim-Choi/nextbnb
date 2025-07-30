@@ -6,8 +6,8 @@ import { useSearchParams } from 'next/navigation'
 import { useParams, useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 
-export default function SubmitButton() {
-  const { status } = useSession()
+export default function SubmitButton({ title }: { title: string }) {
+  const { status, data: session } = useSession()
   const searchParams = useSearchParams()
   const params = useParams()
   const router = useRouter()
@@ -27,11 +27,14 @@ export default function SubmitButton() {
       guestCount: guestCount,
       totalAmount: totalAmount,
       totalDays: totalDays,
+      status: 'PENDING',
     })
 
     if (res.status === 200) {
       toast.success('예약을 완료했습니다.')
-      router.replace(`/users/bookings/${res.data.id}`)
+      // router.replace(
+      //   `/payments/customerKey=${session?.user?.id}&roomTitle=${title}&checkIn=${checkIn}&checkOut=${checkOut}&guestCount=${guestCount}&totalAmount=${totalAmount}&totalDays=${totalDays}&bookingId=${res.data.id}`,
+      // )
     } else {
       toast.error('다시 시도해주세요.')
     }
