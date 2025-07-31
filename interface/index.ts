@@ -138,4 +138,31 @@ export interface BookingType {
   user: UserType
   createAt: string
   updatedAt: string
+  payments?: PaymentType[]
+}
+
+export enum PaymentStatus {
+  READY = 'READY',
+  IN_PROGRESS = 'IN_PROGRESS',
+  WAITING_FOR_DEPOSIT = 'WAITING_FOR_DEPOSIT',
+  DONE = 'DONE',
+  CANCELED = 'CANCELED',
+  PARTIAL_CANCELED = 'PARTIAL_CANCELED',
+  ABORTED = 'ABORTED',
+  EXPIRED = 'EXPIRED',
+}
+
+export interface PaymentType {
+  id: number
+  paymentKey: string
+  bookingId: number
+  amount: number
+  status: PaymentStatus
+  orderId: string
+  orderName: string
+  approvedAt: string
+  mId: string
+  receiptUrl: string
+  cardNumber: string
+  method: string
 }
