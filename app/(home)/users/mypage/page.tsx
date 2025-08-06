@@ -18,7 +18,6 @@ export default function MyPage() {
           {session?.user?.email || 'user@nextbnb.com'}
         </div>
       </div>
-
       <div className="grid md:grid-cols-3 gap-4 mt-12 mb-20">
         <Link
           href="/users/info"
@@ -32,7 +31,7 @@ export default function MyPage() {
         </Link>
 
         <Link
-          href="/users/info"
+          href="/rooms/register/category"
           className="shadow-lg rounded-lg flex flex-col justify-between p-4 gap-12 hover:shadow-xl"
         >
           <BsHouseAdd className="text-xl md:text-3xl" />
